@@ -1,0 +1,102 @@
+<style>
+    .card-container {
+        margin-top: 20px;
+    }
+
+    .card-header {
+
+        background-color: blue;
+        color: white;
+    }
+</style>
+<div class="card-container">
+
+  <div class="card">
+    <div class="card-header">
+      Parts
+    </div>
+    <div class="card-body">
+      <% if part_order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(part_order.errors.count, "error") %> prohibited this part_order from being saved:</h2>
+
+          <ul>
+            <% part_order.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with(model: part_order) do |form| %>
+       <h5>Vendor Information</h5>
+        <div class="form-group row">
+
+          <label for="SelectVendor" class="col-sm-2 col-form-label">Select Vendor</label>
+          <div class="col-sm-4">
+            <%= form.text_field :vendor_id,  class: "form-control", data: {behavior: "autocomplete-order-vendors"}  %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="VendorName" class="col-sm-2 col-form-label">Vendor Name</label>
+          <div class="col-sm-4">
+            <%= form.text_field :vendor, class: "form-control"  %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="VendorPhoneNumber" class="col-sm-2 col-form-label">Vendor Phone Number</label>
+          <div class="col-sm-4">
+            <%= form.text_field :vendor_contact, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="VendorEmail" class="col-sm-2 col-form-label">Vendor Email</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="VendorEmail">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="VendorAddress" class="col-sm-2 col-form-label">Vendor Address</label>
+          <div class="col-sm-4">
+            <%= form.text_field :vendor_address, class: "form-control" %>
+          </div>
+        </div>
+    
+          
+        
+
+        <br>
+
+        <%= react_component("PartItem", { parts: part_order.part_items }) %>
+        <div class="form-group row">
+          <label for="Delivery" class="col-sm-2 col-form-label">Delivery Date</label>
+          <div class="col-sm-2">
+            <%= form.text_field :delivery_date, class: "form-control flatpickr" %>
+          </div>
+          <label for="poNumber" class="col-sm-2 col-form-label">PO Number</label>
+          <div class="col-sm-2">
+            <%= form.text_field :po_number,  class: "form-control"  %>
+          </div>
+        </div>
+        <br>
+
+       
+
+        
+           
+ 
+          
+
+
+        <br>
+        <%= form.submit "Save and Close", class: "btn btn-primary" %>
+
+        <a href="#" class="btn btn-primary" style="float: right;">Cancel</a>
+        </div>
+        </div>
+      <% end %>
+
+      </div>
+
+
+</div>
+</div>

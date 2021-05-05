@@ -1,0 +1,50 @@
+<style>
+  .card-container {
+    margin-top: 20px;
+  }
+
+  .card-header {
+
+    background-color: blue;
+    color: white;
+  }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<div class="card-container">
+  
+  <div class="card">
+  <div class="card-header">
+    Part Order Receipts
+  </div>
+  <div class="card-body">
+   <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th>PO Number</th>
+                    <th>Delivery Date</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @part_orders.each do |part| %>
+                    <tr>
+                      <td><%= part.id %></td>
+                      <td><%= part.delivery_date %></td>
+                      <td><%= part.status %></td>
+                      <td><%= link_to 'Show', part_order_receipt_path(part) %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+        </div>
+
+
+  </div>
+</div>
+
+</div>

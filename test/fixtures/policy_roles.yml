@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  policy: one
+  role: one
+
+two:
+  policy: two
+  role: two

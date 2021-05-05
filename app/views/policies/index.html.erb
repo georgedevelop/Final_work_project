@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Policy</h2>
+  <div class="table-responsive">
+
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Roles</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @policies.each do |policy| %>
+          <tr>
+            <td><%= policy.name %></td>
+            <td><%= policy.roles.map(&:name) %></td>
+            <td><%= link_to 'Show', policy %> | <%= link_to 'Edit', edit_policy_path(policy) %> | <%= link_to 'Destroy', policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<br>
+
+<%= link_to 'New Policy', new_policy_path %>

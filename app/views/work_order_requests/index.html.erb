@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card-container">
+  
+  <div class="card">
+    <div class="card-header">
+      Work Order Requests
+    </div>
+    <div class="card-body">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Issue</th>
+            <th>Line</th>
+            <th>Machine</th>
+            <th>Work order type</th>
+            <th>Request date time</th>
+            <th>Level of issue</th>
+            <th>Requested by</th>
+            <th>Email</th>
+            <th>Description of issue</th>
+            <th>Planned date and time</th>
+            <th>Complete date and time</th>
+            <th>Recurring</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @work_order_requests.each do |work_order_request| %>
+            <tr>
+              <td><%= work_order_request.location %></td>
+              <td><%= work_order_request.issue %></td>
+              <td><%= work_order_request.line %></td>
+              <td><%= work_order_request.machine %></td>
+              <td><%= work_order_request.work_order_type %></td>
+              <td><%= work_order_request.request_date_time %></td>
+              <td><%= work_order_request.level_of_issue %></td>
+              <td><%= work_order_request.requested_by %></td>
+              <td><%= work_order_request.email %></td>
+              <td><%= work_order_request.description_of_issue %></td>
+              <td><%= work_order_request.planned_date_and_time %></td>
+              <td><%= work_order_request.complete_date_and_time %></td>
+              <td><%= work_order_request.recurring %></td>
+              <td><%= link_to 'Show', work_order_request %></td>
+              <td><%= link_to 'Edit', edit_work_order_request_path(work_order_request) %></td>
+              <td><%= link_to 'Destroy', work_order_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New Work Order Request', new_work_order_request_path, class: "btn btn-primary white", style: "float: right;" %>

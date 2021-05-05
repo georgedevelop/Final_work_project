@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  issue: MyString
+  line: MyString
+  machine: MyString
+  type: 
+  request_date_time: 2021-03-22 18:43:48
+  level_of_issue: MyString
+  requested_by: MyString
+  email: MyString
+  description_of_issue: MyString
+  planned_date_and_time: 2021-03-22 18:43:48
+  complete_date_and_time: 2021-03-22 18:43:48
+
+two:
+  location: MyString
+  issue: MyString
+  line: MyString
+  machine: MyString
+  type: 
+  request_date_time: 2021-03-22 18:43:48
+  level_of_issue: MyString
+  requested_by: MyString
+  email: MyString
+  description_of_issue: MyString
+  planned_date_and_time: 2021-03-22 18:43:48
+  complete_date_and_time: 2021-03-22 18:43:48

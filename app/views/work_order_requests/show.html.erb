@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @work_order_request.location %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @work_order_request.issue %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @work_order_request.line %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @work_order_request.machine %>
+</p>
+
+<p>
+  <strong>Work order type:</strong>
+  <%= @work_order_request.work_order_type %>
+</p>
+
+<p>
+  <strong>Request date time:</strong>
+  <%= @work_order_request.request_date_time %>
+</p>
+
+<p>
+  <strong>Level of issue:</strong>
+  <%= @work_order_request.level_of_issue %>
+</p>
+
+<p>
+  <strong>Requested by:</strong>
+  <%= @work_order_request.requested_by %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @work_order_request.email %>
+</p>
+
+<p>
+  <strong>Description of issue:</strong>
+  <%= @work_order_request.description_of_issue %>
+</p>
+
+<p>
+  <strong>Planned date and time:</strong>
+  <%= @work_order_request.planned_date_and_time %>
+</p>
+
+<p>
+  <strong>Complete date and time:</strong>
+  <%= @work_order_request.complete_date_and_time %>
+</p>
+
+<p>
+  <strong>Recurring:</strong>
+  <%= @work_order_request.recurring %>
+</p>
+
+<%= link_to 'Edit', edit_work_order_request_path(@work_order_request) %> |
+<%= link_to 'Back', work_order_requests_path %>

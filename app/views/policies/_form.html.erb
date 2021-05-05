@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= form_with(model: policy) do |form| %>
+      <% if policy.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(policy.errors.count, "error") %> prohibited this policy from being saved:</h2>
+
+          <ul>
+            <% policy.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control', data: {behavior: "autocomplete-policies"} %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :roles %>
+        <%= form.select :role_ids, options_for_role, {}, {:multiple => true, class: 'form-control' } %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

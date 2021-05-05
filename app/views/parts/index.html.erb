@@ -1,0 +1,89 @@
+
+<style>
+  .card-container {
+    margin-top: 20px;
+  }
+
+  .card-header {
+
+    background-color: blue;
+    color: white;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<div class="card-container">
+  
+  <div class="card">
+  <div class="card-header">
+    Parts
+  </div>
+  <div class="card-body">
+    <p class="card-text">Part Search (Enter Parameters)</p>
+     <div class="form-group row">
+    <label for="championPart" class="col-sm-2 col-form-label">Champion Part #</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="championPart">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="championPart" class="col-sm-2 col-form-label">OEM Part #</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="championPart">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="championPart" class="col-sm-2 col-form-label">MFG Part #</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="championPart">
+    </div>
+  </div>
+  <div class="table-responsive">
+        <table class="table table-striped table-sm" id="table-work-orders">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Location</th>
+              <th>Quantity</th>
+              <th>Mfr number</th>
+              <th>Barcode</th>
+              <th>Machine</th>
+              <th>Vendors</th>
+              <th colspan="3"></th>
+              <th style="display: none"></th> 
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @parts.each do |part| %>
+              <tr>
+                <td><% unless part.main_image.url.nil? %><%= image_tag part.main_image, style: "width: 50px;" %><% end %></td>
+                <td><%= part.id %></td>
+                <td><%= part.name %></td>
+                <td><%= part.description %></td>
+                <td><%= part.location %></td>
+                <td><%= part.quantity %></td>
+                <td><%= part.mfr_number %></td>
+                <td><%= part.barcode %></td>
+                <td><%= part.machine %></td>
+                <td><%= part.vendors.map(&:name) %>
+                <td><%= link_to 'Show', part %></td>
+                <td><%= link_to 'Edit', edit_part_path(part) %></td>
+                <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td style="display: none"></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+<br>
+    <%= link_to 'New Part', new_part_path, class: "btn btn-primary white", style: "float: right;" %>
+
+  </div>
+</div>
+
+</div>
+

@@ -1,0 +1,26 @@
+<tr>
+	<td>
+		<div class="field">
+			<%= f.text_field :name, class: "form-control" %>
+		</div>
+	</td>
+	<td>
+		<div class="field">
+			<%= f.text_field :description, class: "form-control" %>
+		</div>
+	</td>
+	<td>
+		<div class="field">
+			<%= f.number_field :quantity, class: "form-control" %>
+		</div>
+	</td>
+	<td>
+		<div class="field">
+			<%= f.number_field :rate, class: "form-control" %>
+		</div>
+	</td>
+	<td>
+		<%= link_to_remove_association "remove part", f %>
+	</td>
+</tr>
+

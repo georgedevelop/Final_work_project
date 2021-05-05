@@ -1,0 +1,42 @@
+<h2>Users</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Sign Up Date</th>
+            <th>Is Admin?</th>
+            <th>Policy</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @users.each do |u| %>
+
+          	<tr>
+	            <td><%= u.id %></td>
+	            <td><%= u.email %></td>
+	            <td><%= u.created_at %></td>
+	            <td><% if u.is_admin? %>Yes<% else %>No<% end %></td>
+              <% if u.is_admin? %>
+              <td>
+                Admin
+              </td>
+              <td>
+              </td>
+              <% else %>
+                <%= form_with model: User, url: user_update_roles_path(u.id), method: :put do |form| %>
+                <td>
+                   <%= form.select :policy_ids, options_for_policy, {selected: u.policies.map(&:id)}, {:multiple => true, class: 'form-control' } %>
+                </td>
+                <td>
+                  <%= form.submit "Update", class: 'btn btn-primary' %>
+                </td>
+                <% end %>
+              <% end %>
+          	</tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>

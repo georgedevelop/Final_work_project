@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @work_order.location %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @work_order.issue %>
+</p>
+
+<p>
+  <strong>Line:</strong>
+  <%= @work_order.line %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @work_order.machine %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @work_order.work_order_type %>
+</p>
+
+<p>
+  <strong>Request date time:</strong>
+  <%= @work_order.request_date_time %>
+</p>
+
+<p>
+  <strong>Level of issue:</strong>
+  <%= @work_order.level_of_issue %>
+</p>
+
+<p>
+  <strong>Requested by:</strong>
+  <%= @work_order.requested_by %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @work_order.email %>
+</p>
+
+<p>
+  <strong>Description of issue:</strong>
+  <%= @work_order.description_of_issue %>
+</p>
+
+<p>
+  <strong>Planned date and time:</strong>
+  <%= @work_order.planned_date_and_time %>
+</p>
+
+<p>
+  <strong>Complete date and time:</strong>
+  <%= @work_order.complete_date_and_time %>
+</p>
+
+<%= link_to 'Edit', edit_work_order_path(@work_order) %> |
+<%= link_to 'Back', work_orders_path %>

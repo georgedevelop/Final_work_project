@@ -1,0 +1,99 @@
+<style>
+  .card-container {
+    margin-top: 20px;
+  }
+
+  .card-header {
+
+    background-color: blue;
+    color: white;
+  }
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-sm-12">
+		<%= link_to 'Export to PDF', part_order_path(@part_order, format: "pdf"), class: "btn btn-primary white", style: "float: right;" %>
+	</div>
+</div>
+
+<div class="card-container">
+  <%= form_with(url: part_order_path(@part_order), method: "put")  do |f| %> 
+  <div class="card">
+  <div class="card-header">
+    Part Oder for PO - <%= @part_order.id %>
+  </div>
+  <div class="card-body">
+  	<div class="row">
+		<div class="col-12">
+			Vendor Name: <%= @part_order.vendor %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			Vendor Phone Number: <%= @part_order.vendor_contact %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			Vendor Address: <%= @part_order.vendor_address %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			Delivery Date: <%= @part_order.delivery_date %>
+		</div>
+	</div>
+	<hr>
+  
+  <div class="table-responsive">
+  		
+        <table class="table table-striped table-sm" id="table-work-orders"> 
+          <thead>
+            <tr>
+              <th>Part Name</th>
+              <th>Part Description</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Received</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            
+          	  <% @part_order.part_items.each_with_index do |t, i| %>
+              <tr>
+                <td><%= t.name %></td>
+                <td><%= t.description %></td>
+                <td><%= t.quantity %></td>
+                <td><%= t.rate %></td>
+                <td>
+                  <%= f.hidden_field "part_order[part_items_attributes][" + i.to_s + "][id]", value: t.id %>
+                    <%= f.number_field "part_order[part_items_attributes][" + i.to_s + "][received]", value: t.received %>
+                </td>
+              </tr>
+              <% end %>
+              <tr>
+                <td></td>
+                <td></td>
+                <td style="font-weight: bold">TOTAL</td>
+                <td><%= @part_order.total %></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+<br>
+
+	
+	<%= link_to 'Back', part_orders_path, class: "btn btn-primary white" %>
+  <%= f.submit "Update", class: "btn btn-primary white", style: "float: right;" %>
+
+  </div>
+  <% end %>
+</div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="row" style="background-color: blue; color: white;">
+	<div class="col-md-12">
+		Part Order
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		Vendor Name: <%= @part_order.vendor %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		Vendor Phone Number: <%= @part_order.vendor_contact %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		Vendor Address: <%= @part_order.vendor_address %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-12">
+		Delivery Date: <%= @part_order.delivery_date %>
+	</div>
+</div>
+<hr>
+  <div class="table-responsive">
+  		
+        <table class="table table-striped" id="table-work-orders"> 
+          <thead>
+            <tr>
+              <th style="width:200px; text-align: left;">Part Name</th>
+              <th style="width:200px; text-align: left;">Part Description</th>
+              <th style="width:200px; text-align: left;">Quantity</th>
+              <th style="width:200px; text-align: left;">Rate</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          	  <% @part_order.part_items.each do |t| %>
+              <tr>
+                <td><%= t.name %></td>
+                <td><%= t.description %></td>
+                <td><%= t.quantity %></td>
+                <td><%= t.rate %></td>
+              </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
